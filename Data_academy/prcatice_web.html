@@ -1,368 +1,286 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Data Academy</title>
-        <style>
-            /* Import Google Fonts */
-            @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Academy</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6;
+            color: #333;
+        }
 
-            /* General reset */
-            body, h1, h2, p {
-                margin: 0;
-                padding: 0;
-                font-family: 'Poppins', sans-serif;
-            }
+        /* Navigation */
+        .navbar {
+            background-color: #1e90ff;
+            padding: 10px;
+            color: white;
+            text-align: center;
+        }
 
-            /* Body styling */
-            body {
-                background-color: #f4f7f6; /* Very light grey background */
-                color: #333; /* Dark grey text */
-                padding: 20px;
-            }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+        }
 
-            /* Header styling */
-            header {
-                background-color: #1e90ff; /* Dodger blue background */
-                color: #fff;
-                padding: 50px 20px;
-                text-align: center;
-                border-radius: 10px;
-                margin-bottom: 40px;
-                animation: fadeIn 2s ease-in-out; /* Fade-in animation */
-            }
+        .navbar a:hover {
+            text-decoration: underline;
+        }
 
-            header h1 {
-                font-size: 48px;
-                font-weight: 600;
-                margin-bottom: 10px;
-                animation: slideIn 1s ease-out forwards;
-            }
+        /* Welcome Container */
+        .welcome-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            margin: 20px;
+            animation: fadeIn 2s ease-in-out;
+        }
 
-            header p {
-                font-size: 20px;
-                font-weight: 300;
-            }
+        /* Style for images */
+        .welcome-image {
+            width: 200px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            transition: transform 0.3s ease-in-out;
+        }
 
-            /* Fade-in and slide-in animations */
-            @keyframes fadeIn {
-                0% { opacity: 0; }
-                100% { opacity: 1; }
-            }
+        .welcome-image:hover {
+            transform: scale(1.05);
+        }
 
-            @keyframes slideIn {
-                0% { transform: translateY(-20px); opacity: 0; }
-                100% { transform: translateY(0); opacity: 1; }
-            }
+        /* Style for text */
+        .welcome-text {
+            text-align: center;
+            margin: 20px;
+        }
 
-            /* Introduction section */
-            .intro {
-                text-align: center;
-                margin-bottom: 40px;
-                animation: fadeIn 2s ease-in-out;
-            }
+        .welcome-text h1 {
+            font-size: 48px;
+            color: #1e90ff; /* Dodger blue */
+            margin-bottom: 10px;
+            animation: slideIn 1.5s ease-out;
+        }
 
-            .intro h2 {
-                font-size: 36px;
-                color: #ff6347; /* Tomato color */
-                margin-bottom: 10px;
-                animation: slideIn 1.5s ease-out forwards;
-            }
+        .welcome-text p {
+            font-size: 20px;
+        }
 
-            .intro p {
-                font-size: 18px;
-                color: #555;
-                line-height: 1.8;
-                margin-bottom: 20px;
-                font-weight: 300;
-            }
+        /* Animation for fading in */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
 
-            /* Courses section */
-            .courses {
-                margin-bottom: 40px;
-            }
+        /* Animation for sliding in */
+        @keyframes slideIn {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
 
-            .courses h2 {
-                font-size: 30px;
-                color: #32cd32; /* Lime green color */
-                text-align: center;
-                margin-bottom: 20px;
-                animation: slideIn 1.5s ease-out forwards;
-            }
+        /* Courses Section */
+        .courses-container {
+            margin: 20px;
+        }
 
-            .courses ul {
-                list-style-type: none;
-                padding: 0;
-                text-align: center;
-                display: flex;
+        .course {
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .course h2 {
+            font-size: 28px;
+            color: #1e90ff;
+            margin-bottom: 10px;
+        }
+
+        .course ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        .course ul li {
+            margin-bottom: 10px;
+        }
+
+        .register-button {
+            display: inline-block;
+            background-color: #1e90ff;
+            color: #fff;
+            padding: 10px 15px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 16px;
+            text-align: center;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .register-button:hover {
+            background-color: #4682b4;
+        }
+
+        /* Styling for form */
+        .contact-form {
+            margin: 20px;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .contact-form h2 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        .contact-form label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .contact-form input[type="submit"] {
+            background-color: #1e90ff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            padding: 10px 15px;
+            font-size: 16px;
+            border-radius: 4px;
+        }
+
+        .contact-form input[type="submit"]:hover {
+            background-color: #4682b4;
+        }
+
+        /* Footer styling */
+        footer {
+            background-color: #1e90ff;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .welcome-container {
                 flex-direction: column;
-                align-items: center;
-                gap: 15px;
             }
 
-            .courses ul li {
-                font-size: 20px;
-                color: #333;
-                background-color: #fff;
-                padding: 10px 20px;
-                border-radius: 5px;
-                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-                transition: transform 0.3s ease, background-color 0.3s ease;
-                cursor: pointer;
-                animation: fadeIn 2s ease-in-out;
-                width: 100%;
-                max-width: 600px;
+            .welcome-image {
+                width: 150px;
             }
 
-            .courses ul li:nth-child(odd) {
-                background-color: #e6f7ff; /* Light blue background for odd items */
+            .welcome-text h1 {
+                font-size: 36px;
             }
 
-            .courses ul li:hover {
-                transform: translateY(-5px);
-                background-color: #b3e0ff; /* Slightly darker blue on hover */
-            }
-
-            /* Course detail section */
-            .course-detail {
-                display: none;
-                margin: 20px 0;
-                padding: 20px;
-                background-color: #fff;
-                border-radius: 5px;
-                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-                animation: fadeIn 2s ease-in-out;
-            }
-
-            .course-detail h3 {
-                font-size: 24px;
-                color: #32cd32; /* Lime green color */
-                margin-bottom: 10px;
-            }
-
-            .course-detail ul {
-                list-style-type: disc;
-                padding-left: 20px;
-                color: #555;
-                line-height: 1.8;
-            }
-
-            /* Centering the image */
-            .image-container {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                margin-bottom: 40px;
-                animation: fadeIn 2s ease-in-out;
-            }
-
-            .academy-image {
-                width: 300px;
-                height: auto;
-                border-radius: 10px;
-                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-                animation: slideIn 2s ease-out forwards;
-            }
-
-            /* Contact form */
-            .contact-form {
-                background-color: #fff;
-                padding: 30px;
-                border-radius: 10px;
-                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-                max-width: 500px;
-                margin: 0 auto;
-                animation: fadeIn 2s ease-in-out;
-            }
-
-            .contact-form h2 {
-                font-size: 28px;
-                color: #ff6347; /* Tomato color */
-                text-align: center;
-                margin-bottom: 20px;
-            }
-
-            .contact-form label {
-                font-size: 16px;
-                margin-bottom: 10px;
-                display: block;
-                color: #333;
-            }
-
-            .contact-form input[type="text"],
-            .contact-form input[type="email"],
-            .contact-form textarea {
-                width: 100%;
-                padding: 12px;
-                margin-bottom: 15px;
-                border: 1px solid #ccc;
-                border-radius: 5px;
-                font-size: 16px;
-                transition: border-color 0.3s ease;
-            }
-
-            .contact-form input[type="text"]:focus,
-            .contact-form input[type="email"]:focus,
-            .contact-form textarea:focus {
-                border-color: #32cd32; /* Lime green border on focus */
-            }
-
-            .contact-form textarea {
-                resize: vertical;
-                height: 120px;
-            }
-
-            .contact-form input[type="submit"] {
-                background-color: #1e90ff; /* Dodger blue background */
-                color: #fff;
-                padding: 12px 20px;
+            .welcome-text p {
                 font-size: 18px;
-                border: none;
-                border-radius: 5px;
-                cursor: pointer;
-                transition: background-color 0.3s ease;
-                display: block;
-                margin: 0 auto;
             }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Courses</a>
+        <a href="#">Contact</a>
+    </div>
 
-            .contact-form input[type="submit"]:hover {
-                background-color: #005bb5; /* Darker blue on hover */
-            }
+    <!-- Welcome Container -->
+    <div class="welcome-container">
+        <!-- Left Image -->
+        <img src="data-academy.jpg" alt="Data Academy" class="welcome-image">
 
-            /* Footer styling */
-            footer {
-                text-align: center;
-                margin-top: 40px;
-                color: #777; /* Medium grey text */
-                font-size: 14px;
-                animation: fadeIn 2s ease-in-out;
-            }
-        </style>
-        <script>
-            // JavaScript to toggle course details
-            document.addEventListener('DOMContentLoaded', () => {
-                document.querySelectorAll('.course-item').forEach(item => {
-                    item.addEventListener('click', () => {
-                        const detailId = item.dataset.target;
-                        document.querySelectorAll('.course-detail').forEach(detail => {
-                            if (detail.id === detailId) {
-                                detail.style.display = detail.style.display === 'block' ? 'none' : 'block';
-                            } else {
-                                detail.style.display = 'none';
-                            }
-                        });
-                    });
-                });
-            });
-        </script>
-    </head>
-    <body>
-        <!-- Header -->
-        <header>
+        <!-- Welcome Text -->
+        <div class="welcome-text">
             <h1>Welcome to Data Academy</h1>
             <p>Empowering the Next Generation of Data Scientists and Analysts</p>
-        </header>
-
-        <!-- Introduction section -->
-        <div class="intro">
-            <h2>About Data Academy</h2>
-            <p>At Data Academy, we are dedicated to providing top-notch education and training in data science, analytics, and machine learning. Our courses are designed to equip you with the skills and knowledge needed to excel in the data-driven world.</p>
         </div>
 
-        <!-- Courses section -->
-        <div class="courses">
-            <h2>Our Courses</h2>
-            <ul>
-                <li class="course-item" data-target="course1">Introduction to Data Science</li>
-                <li class="course-item" data-target="course2">Data Analytics with Python</li>
-                <li class="course-item" data-target="course3">Machine Learning Fundamentals</li>
-                <li class="course-item" data-target="course4">Advanced Data Visualization</li>
-                <li class="course-item" data-target="course5">Big Data and Cloud Computing</li>
-            </ul>
-        </div>
+        <!-- Right Image -->
+        <img src="data-academy.jpg" alt="Data Academy" class="welcome-image">
+    </div>
 
-        <!-- Course Details -->
-        <div class="course-detail" id="course1">
-            <h3>Introduction to Data Science</h3>
+    <!-- Courses Section -->
+    <div class="courses-container">
+        <div class="course">
+            <h2>Introduction to Data Science</h2>
             <ul>
                 <li>Overview of Data Science</li>
-                <li>Data Collection and Cleaning</li>
-                <li>Exploratory Data Analysis</li>
-                <li>Data Visualization</li>
-                <li>Basic Statistical Concepts</li>
-            </ul>
-        </div>
-
-        <div class="course-detail" id="course2">
-            <h3>Data Analytics with Python</h3>
-            <ul>
-                <li>Introduction to Python for Data Analysis</li>
-                <li>Data Manipulation with Pandas</li>
-                <li>Data Visualization with Matplotlib and Seaborn</li>
-                <li>Statistical Analysis with Scipy</li>
+                <li>Data Exploration and Visualization</li>
+                <li>Basic Statistical Analysis</li>
                 <li>Introduction to Machine Learning</li>
             </ul>
+            <a href="register.html" class="register-button">Register for this Training</a>
         </div>
-
-        <div class="course-detail" id="course3">
-            <h3>Machine Learning Fundamentals</h3>
+        <div class="course">
+            <h2>Advanced Data Analysis</h2>
             <ul>
-                <li>Introduction to Machine Learning</li>
-                <li>Supervised Learning Techniques</li>
-                <li>Unsupervised Learning Techniques</li>
-                <li>Model Evaluation and Validation</li>
-                <li>Practical Applications and Projects</li>
+                <li>Advanced Statistical Methods</li>
+                <li>Predictive Modeling</li>
+                <li>Big Data Technologies</li>
+                <li>Data Mining Techniques</li>
             </ul>
+            <a href="register.html" class="register-button">Register for this Training</a>
         </div>
-
-        <div class="course-detail" id="course4">
-            <h3>Advanced Data Visualization</h3>
+        <div class="course">
+            <h2>Machine Learning</h2>
             <ul>
-                <li>Advanced Visualization Techniques</li>
-                <li>Interactive Dashboards with Tableau</li>
-                <li>Data Storytelling</li>
-                <li>Visualization Best Practices</li>
-                <li>Case Studies and Real-World Examples</li>
+                <li>Supervised Learning</li>
+                <li>Unsupervised Learning</li>
+                <li>Model Evaluation and Optimization</li>
+                <li>Deep Learning Fundamentals</li>
             </ul>
+            <a href="register.html" class="register-button">Register for this Training</a>
         </div>
+    </div>
 
-        <div class="course-detail" id="course5">
-            <h3>Big Data and Cloud Computing</h3>
-            <ul>
-                <li>Introduction to Big Data Technologies</li>
-                <li>Cloud Computing Fundamentals</li>
-                <li>Data Storage and Processing on the Cloud</li>
-                <li>Big Data Tools and Frameworks (Hadoop, Spark)</li>
-                <li>Scaling and Performance Optimization</li>
-            </ul>
-        </div>
+    <!-- Contact Form -->
+    <div class="contact-form">
+        <h2>Contact Us</h2>
+        <form action="form-handler.php" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
 
-        <!-- Centered Image -->
-        <div class="image-container">
-            <img src="data-academy.jpg" alt="Data Academy" class="academy-image">
-        </div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
 
-        <!-- Contact form -->
-        <div class="contact-form">
-            <h2>Contact Us</h2>
-            <form action="#" method="POST">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" placeholder="Enter your message" required></textarea>
 
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            <input type="submit" value="Send Message">
+        </form>
+    </div>
 
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" placeholder="Enter your message" required></textarea>
-
-                <input type="submit" value="Send Message">
-            </form>
-        </div>
-
-        <!-- Footer -->
-        <footer>
-            <p>&copy; 2024 Data Academy. All rights reserved.</p>
-        </footer>
-    </body>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Data Academy. All rights reserved.</p>
+    </footer>
+</body>
 </html>
