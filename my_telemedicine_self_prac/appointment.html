@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Appointment</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Book an Appointment</h1>
+    </header>
+
+    <main>
+        <section>
+            <form action="appointment-handler.php" method="POST">
+                <label for="patient-name">Name:</label>
+                <input type="text" id="patient-name" name="name" required>
+                <label for="appointment-date">Date:</label>
+                <input type="date" id="appointment-date" name="date" required>
+                <label for="appointment-time">Time:</label>
+                <input type="time" id="appointment-time" name="time" required>
+                <label for="doctor">Select Doctor:</label>
+                <select id="doctor" name="doctor" required>
+                    <option value="dr1">Dr. Smith</option>
+                    <option value="dr2">Dr. Johnson</option>
+                </select>
+                <input type="submit" value="Book Appointment">
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Telemedicine Platform. All rights reserved.</p>
+    </footer>
+</body>
+</html>
