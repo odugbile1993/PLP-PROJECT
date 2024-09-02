@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My First Web Page</title>
+        <meta name="description" content="This is a beginner web page">
+        <style>
+            /* General reset */
+            body, h1, p {
+                margin: 0;
+                padding: 0;
+            }
+
+            /* Body styling */
+            body {
+                font-family: 'Arial', sans-serif;
+                background-color: #f0f0f5; /* Light grey background */
+                color: #333; /* Dark grey text */
+                text-align: center;
+                padding: 50px;
+            }
+
+            /* Header styling */
+            h1 {
+                font-size: 48px;
+                color: #0073e6; /* Soft blue color */
+                margin-bottom: 20px;
+            }
+
+            /* Paragraph styling */
+            p {
+                font-size: 20px;
+                line-height: 1.6;
+                color: #555; /* Medium grey color */
+                margin-bottom: 30px;
+            }
+
+            /* Image styling */
+            img {
+                width: 120px; /* Icon size */
+                height: auto; /* Maintain aspect ratio */
+                border-radius: 50%; /* Make the image circular */
+                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+                transition: transform 0.3s ease-in-out; /* Add a smooth hover effect */
+            }
+
+            /* Image hover effect */
+            img:hover {
+                transform: scale(1.1); /* Slightly enlarge the image on hover */
+            }
+
+            /* Form styling */
+            form {
+                background-color: #fff;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+                display: inline-block;
+                margin-top: 20px;
+                text-align: left;
+            }
+
+            /* Input and label styling */
+            label {
+                font-size: 16px;
+                margin-bottom: 10px;
+                display: block;
+                color: #333;
+            }
+
+            input[type="text"],
+            input[type="email"] {
+                width: 100%;
+                padding: 10px;
+                margin-bottom: 15px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                font-size: 16px;
+            }
+
+            /* Submit button styling */
+            input[type="submit"] {
+                background-color: #0073e6;
+                color: #fff;
+                padding: 10px 20px;
+                font-size: 18px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s ease-in-out;
+            }
+
+            input[type="submit"]:hover {
+                background-color: #005bb5;
+            }
+
+            /* Button styling */
+            .btn {
+                display: inline-block;
+                background-color: #0073e6; /* Soft blue color */
+                color: #fff;
+                padding: 10px 20px;
+                font-size: 18px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                text-decoration: none; /* Remove underline from links */
+                transition: background-color 0.3s ease-in-out;
+                margin-top: 20px;
+            }
+
+            /* Button hover effect */
+            .btn:hover {
+                background-color: #005bb5; /* Darker blue on hover */
+            }
+
+            /* Animation for the welcome message */
+            .welcome-message {
+                font-size: 30px;
+                color: #ff6600; /* Bright orange color */
+                position: relative;
+                white-space: nowrap;
+                animation: slide-in 10s infinite linear;
+                font-weight: bold;
+            }
+
+            @keyframes slide-in {
+                0% {
+                    transform: translateX(100%);
+                }
+                100% {
+                    transform: translateX(-100%);
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Welcome message with animation -->
+        <div class="welcome-message">Welcome to My Very First Web Page!</div>
+        
+        <!-- Heading -->
+        <h1>My Very First Web Page!</h1>
+        
+        <!-- Paragraph -->
+        <p>I Can't Believe! I have Created My First Web Page</p>
+
+        <!-- Embedded image as an icon -->
+        <img src="image.jpg" alt="This is an image of jewelry">
+
+        <!-- User details form -->
+        <form action="#" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <input type="submit" value="Submit">
+        </form>
+
+        <!-- External link to Google -->
+        <a href="https://www.google.com" class="btn" target="_blank">Go to Google</a>
+    </body>
+</html>
